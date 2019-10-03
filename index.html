@@ -1,9 +1,11 @@
-﻿<html>
+<html>
 <head>
 <style>
          body{
-	background-image: url('giphy1.gif');
+	
 	margin:0;
+
+ background: linear-gradient(to right, #ffffff -5%, #3399ff 102%);
 	padding:0;
 }
 *{
@@ -18,22 +20,24 @@ h1{
 }
 
 .quiz_wrapper{
-	height: 70%;
+	height: 80%;
 	width:90%;
-              
-	
+                border-radius: 50px;
+              background-color:white;
+               border: 10px solid black;
 	margin:10px auto;
-	border-radius: 15px;
+	    background: linear-gradient(to bottom, #ccffff -5%, #ffffff 102%);
 	padding: 50px;
 }
 
 .quiz_wrapper .question{
 	padding: 15px;
-	background-color:#5D4CC9;
+	 border: 5px solid black;
 	border-radius: 50px;
 	text-align:center;
-                font-family:Comic Sans MS;
-	color:#ffffff;
+                background: linear-gradient(to bottom, #ffffff -5%, #66ccff 102%);
+               font-family:Comic Sans MS;
+	color:black;
 	font-size:65px;
 	float: left;
 	width: 100%;
@@ -41,7 +45,7 @@ h1{
 }
 .quiz_wrapper .options{
 	float: left;
-	width: 100%;
+	width: 90%;
 }
 
 .quiz_wrapper .options ul{
@@ -54,15 +58,17 @@ h1{
 
 .quiz_wrapper .options ul li{
 	display: inline-block;
-	background-color:#2c0747;
-    font-family:Comic Sans MS;
+	 background: linear-gradient(to right, #ffffff -5%, #3399ff 102%);
+              font-family:Comic Sans MS;
+              border: 8px solid #001C55;
 	width: 80%;
 	padding: 15px;
 	border-radius:8px;
 	margin-top: 25px;
-	margin-left:73px;
-	font-size: 45px;
-	color:#ffffff;
+	margin-left:105px;
+	font-size: 55px;
+	color:black;
+            
 	box-shadow: 0px 3px 0px grey;
 	cursor: pointer;
 	outline: none;
@@ -74,36 +80,45 @@ h1{
 }
 .quiz_wrapper .options ul li.correct{
 	background-color: #0fd40f;
-	box-shadow: 0px 3px 0px #03a503;
+              
+               box-shadow: 0px 3px 0px #03a503;
+	
 }
 
 .quiz_wrapper .options ul li.wrong{
 	background-color: #e91e1e;
-	box-shadow: 0px 3px 0px #cb0b0b;
+
+	box-shadow: 0px 3px 0px #03a503;
 }
 
 .quiz_wrapper .score{
 	float: left;
 	width: 100%;
-
+               border-style: solid black;
 	padding:25px 0px;
-               margin:30px;
+              margin-bottom:50px;
+               margin-left:10px;
 }
 
 .quiz_wrapper .score .next{
-	width: 40%;
+	width: 30%;
 	float: right;
-               margin-right:38px;
+               height:40px;
+
+
+               margin-right:5px;
      margin-bottom:80px;
              
 }
 .quiz_wrapper .score .next button{
 	padding: 15px 80px;
 	color:white;
-	background-color:#244EE5;
-	border:none;
-	border-radius:8px;
-	font-size: 35px;
+              border: 7px solid  black;
+             color:black;
+	
+             
+	
+	font-size: 45px;
 	cursor: pointer;
                float:right;
                
@@ -115,34 +130,25 @@ box-shadow: 0px 3px 0px transparent;
 }
 
 .quiz_wrapper .score .score-card{
-	width: 55%;
+	width: 30%;
 	float: left;
 }
 .quiz_wrapper .score .score-card{
 	font-size: 65px;
 	color:black;
                font-family:bold;
-	
+	width:60%;
+padding:9px;
                text-transform: uppercase;
 }
 .quiz_wrapper .score .score-card span{
 	background-color: #4caf50;
-	padding: 5px 20px;
+	padding: 5px 20px; 
+               height:40px;
 	border-radius: 8px;
 	color:#ffffff;
 
 }
-
-
-
-
-
-
-
-
-
-
-
 .grid h1 {
 font-family: "sans-serif";
 background-color: #2c0747;
@@ -189,10 +195,11 @@ height:100px;
            
            <div class="options">
            	  <ul id="ul" >
-           	  	  <li id="op1" onclick="button(this)"></li>
-           	  	  <li id="op2" onclick="button(this)"></li>
+           	  	<li id="op1"  onclick="button(this)"></li>
+           	  	  <li id="op2" onclick=" button(this)"></li>
            	  	  <li id="op3" onclick="button(this)"></li>
            	  	  <li id="op4" onclick="button(this)"></li>
+                               
            	  </ul>
            </div>
            <div class="score">
@@ -200,7 +207,7 @@ height:100px;
            	   	  <button type="button" onclick="next()" id="button">Next</button>
            	   </div>
            	   <div class="score-card">
-           	   	 Score: <span id="scoreCard">0</span>
+           	   	Score: <span id="scoreCard">0</span>
            	   </div>
 </div>
                 
@@ -221,6 +228,7 @@ height:100px;
   var op2=document.getElementById('op2');
   var op3=document.getElementById('op3');
   var op4=document.getElementById('op4');
+
  
 
 
@@ -248,19 +256,20 @@ height:100px;
                 index:0,
                 load:function(){
                       if(this.index<=this.questions.length-1){
-                        
-						quizBox.innerHTML=this.questions[this.index].q;
+                        quizBox.innerHTML=this.questions[this.index].q;
                         op1.innerHTML=this.questions[this.index].options[0];
                         op2.innerHTML=this.questions[this.index].options[1];
                         op3.innerHTML=this.questions[this.index].options[2];
                         op4.innerHTML=this.questions[this.index].options[3];
+                       
                            this.scoreCard();
+ 
                         }
                         else{
                         if(this.score>=0 && this.score<5)
                         {
                        quizBox.innerHTML="क्विज़ में भाग लेने के लिए धन्यवाद !" ;
-                       op1.innerHTML="<b>कोई बात नहीं!</b><br>कोशिश करने वालों की कभी हार नही होती<br><img src='download.jpg'>";
+                       op1.innerHTML="<b>कोई बात नहीं!</b><br>कोशिश करने वालों की कभी हार नही होती";
                    
                                                            
                     
@@ -283,36 +292,113 @@ height:100px;
 	          	  		
 	         }
 						
-	         op2.innerHTML="<a href='answer.html' style='color:white; text-decoration:none;'>Know your answer</a>";
-                       op3.innerHTML="<a href='whatsapp://send?text=My city my app, download now -https://circleapp.page.link/jTpt' data-action='share/whatsapp/share' style='color:white; text-decoration:none;'>Share via Whatsapp</a>";
+	         op2.innerHTML="<a href='file:///C:/Users/asus/Downloads/answer.html' style='color:black; text-decoration:none;'>Know your answer</a>";
+                       op3.innerHTML="<a href='whatsapp://send?text=My city my app, download now -https://circleapp.page.link/jTpt' data-action='share/whatsapp/share' style='color:black; text-decoration:none;'>Share via Whatsapp</a>";
                        op4.style.display="none";
                        btn.style.display="none";
                    
 }
-                             
+                       
                 },
                next:function(){
-                    this.index++;
+               this.index++;
                     this.load();
+ document.getElementById("op1").style.background='linear-gradient(to right, #ffffff -5%, #3399ff 102%)';
+document.getElementById("op2").style.background='linear-gradient(to right, #ffffff -5%, #3399ff 102%)';
+document.getElementById("op3").style.background='linear-gradient(to right, #ffffff -5%, #3399ff 102%)';
+document.getElementById("op4").style.background='linear-gradient(to right, #ffffff -5%, #3399ff 102%)';
                  },
                 check:function(ele){
                    
                          var id=ele.id.split('');
-                         
-                         if(id[id.length-1]==this.questions[this.index].answer){
-                         	this.score++;
+                             if(id[id.length-1]==this.questions[this.index].answer){
+                               this.score++;
+                              if(this.questions[this.index].answer==1)
+                         {                                 
+                            document.getElementById("op1").style.background = "#66ff99";
+                            document.getElementById("op1").innerHTML = "Correct";
+                         }
+                         else if(this.questions[this.index].answer==2)
+                         {                                 
+                            
+                            document.getElementById("op2").style.background = "#66ff99";
+                          document.getElementById("op2").innerHTML = "Correct";
+                         }
+ else if(this.questions[this.index].answer==3)
+                         {                                 
+                           
+                           document.getElementById("op3").style.background = "#66ff99";
+                           document.getElementById("op3").innerHTML = "Correct";
+                         }
+else if(this.questions[this.index].answer==4)
+                         {                                 
+                           
+                           document.getElementById("op4").style.background = "#66ff99";
+document.getElementById("op4").innerHTML = "Correct";
+                         }
+
+ 
                          	ele.className=" correct";
-                         	ele.innerHTML=" Correct";
-                         	this.scoreCard();
+                         	
+                         
+
+                              this.scoreCard();
                          }
-                         else{
+                        else{
                          	ele.className=" wrong";
-                         	ele.innerHTML=" Wrong";
+                         	
+      if(this.questions[this.index].answer==1)
+                         {                                 
+                            document.getElementById("op1").style.background = "#66ff99";
+                            document.getElementById("op1").innerHTML = "Correct";
+                            document.getElementById("op2").innerHTML = "Wrong";
+document.getElementById("op3").innerHTML = "Wrong";
+document.getElementById("op4").innerHTML = "Wrong";
+                            document.getElementById("op2").style.background = "red";
+                           document.getElementById("op3").style.background = "red";
+                           document.getElementById("op4").style.background = "red";
                          }
+                         else if(this.questions[this.index].answer==2)
+                         {                                 
+                            document.getElementById("op1").style.background = "red";
+                            document.getElementById("op2").style.background = "#66ff99";
+                           document.getElementById("op3").style.background = "red";
+                           document.getElementById("op4").style.background = "red";
+ document.getElementById("op2").innerHTML = "Correct";
+                            document.getElementById("op1").innerHTML = "Wrong";
+document.getElementById("op3").innerHTML = "Wrong";
+document.getElementById("op4").innerHTML = "Wrong";
+                         }
+ else if(this.questions[this.index].answer==3)
+                         {                                 
+                            document.getElementById("op1").style.background = "red";
+                            document.getElementById("op2").style.background = "red";
+                           document.getElementById("op3").style.background = "#66ff99";
+                           document.getElementById("op4").style.background = "red";
+ document.getElementById("op3").innerHTML = "Correct";
+                            document.getElementById("op2").innerHTML = "Wrong";
+document.getElementById("op1").innerHTML = "Wrong";
+document.getElementById("op4").innerHTML = "Wrong";
+                         }
+else if(this.questions[this.index].answer==4)
+                         {                                 
+                            document.getElementById("op1").style.background = "red";
+                            document.getElementById("op2").style.background = "red";
+                           document.getElementById("op3").style.background = "red";
+                           document.getElementById("op4").style.background = "#66ff99";
+ document.getElementById("op4").innerHTML = "Correct";
+                            document.getElementById("op2").innerHTML = "Wrong";
+document.getElementById("op3").innerHTML = "Wrong";
+document.getElementById("op1").innerHTML = "Wrong";
+                         }
+
+                         }
+                             
                 },
                 notClickAble:function(){
                        for(let i=0;i<ul.children.length;i++){
                        	    ul.children[i].style.pointerEvents="none";
+
                        }
                 },
 
@@ -330,12 +416,14 @@ height:100px;
  
            }
 
-
+   
            window.onload=app.load();
 
            function button(ele){
-           	     app.check(ele);
-           	     app.notClickAble();
+                  
+           	    app.check(ele);
+
+                    app.notClickAble();
            }
 
          function  next(){
@@ -344,8 +432,9 @@ height:100px;
          } 
 
 
-
+document.innerHTML = ele;
 
 </script>
+
 </body>
 </html>
